@@ -18,6 +18,8 @@ app.use(express.json());
 app.use(cors({ origin: process.env.FRONTEND_URL }));
 app.use(helmet());
 app.use(morgan('dev'));
+// Сервируем статические файлы из корня репозитория
+app.use(express.static(path.join(__dirname)));
 
 // Routes
 app.use('/api/auth', authRoutes);
